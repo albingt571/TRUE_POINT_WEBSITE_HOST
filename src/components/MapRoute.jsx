@@ -179,12 +179,14 @@ export default function MapRoute() {
               <Layer
                 id="route-outline-layer"
                 type="line"
+                source="route-source"
                 layout={{ 'line-join': 'round', 'line-cap': 'round' }}
                 paint={{ 'line-color': '#1a3a8a', 'line-width': 10, 'line-opacity': 0.4 }}
               />
               <Layer
                 id="route-main-layer"
                 type="line"
+                source="route-source"
                 layout={{ 'line-join': 'round', 'line-cap': 'round' }}
                 paint={{ 'line-color': '#4285F4', 'line-width': 5, 'line-opacity': 0.9 }}
               />
