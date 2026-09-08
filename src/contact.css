@@ -26,7 +26,7 @@
 .info-item small { font: 9px var(--mono); color: var(--lime); letter-spacing: 1px; }
 .info-item strong { font-size: 16px; font-weight: 700; color: white; }
 .map-wrapper { flex: 2; min-height: 350px; background: #14251f; position: relative; }
-@media (max-width: 720px) { .map-container { flex-direction: column; } .map-wrapper { min-height: 250px; } }
+@media (max-width: 720px) { .map-container { flex-direction: column; } .map-wrapper { min-height: 350px; height: 350px; flex: none; width: 100%; } }
 .map-google-btn { background: transparent; border: 1px solid var(--lime) !important; color: var(--lime); margin-top: 12px; text-decoration: none; text-align: center; }
 .map-google-btn:hover { background: var(--lime); color: var(--ink); }
 

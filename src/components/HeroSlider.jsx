@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 const slides = [
   {
     img: '/assets/boundary-survey.png',
+    mobileImg: '/assets/mobile-boundary-survey.jpg',
     alt: 'Survey engineer establishing land boundaries',
     eyebrow: 'True Point · digital land survey',
     h1: (<>Know your<br /><em>boundaries.</em></>),
@@ -12,6 +13,7 @@ const slides = [
   },
   {
     img: '/assets/setting-out.png',
+    mobileImg: '/assets/mobile-setting-out.jpg',
     alt: 'Engineer completing building setting out',
     eyebrow: 'True Point · construction survey',
     h1: (<>Set out with<br /><em>confidence.</em></>),
@@ -21,6 +23,7 @@ const slides = [
   },
   {
     img: '/assets/topographic-survey.png',
+    mobileImg: '/assets/mobile-topographic-survey.jpg',
     alt: 'Engineer undertaking a topographical survey',
     eyebrow: 'True Point · terrain data',
     h1: (<>See every<br /><em>contour.</em></>),
@@ -48,7 +51,10 @@ export default function HeroSlider() {
     <section className="hero service-slider" aria-label="True Point surveying services">
       {slides.map((slide, index) => (
         <article key={index} className={`slide${index === current ? ' active' : ''}`}>
-          <img src={slide.img} alt={slide.alt} />
+          <picture style={{ display: 'contents' }}>
+            <source media="(max-width: 720px)" srcSet={slide.mobileImg} />
+            <img src={slide.img} alt={slide.alt} />
+          </picture>
           <div className="slide-shade"></div>
           <div className="hero-grid"></div>
           <div className="slide-content">
