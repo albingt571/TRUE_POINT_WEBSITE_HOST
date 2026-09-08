@@ -6,10 +6,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="#top" aria-label="True Point home">
-        <svg viewBox="0 0 46 46" aria-hidden="true">
-          <path d="M4 35 23 6l19 29H4Zm9.5-5h19L23 15.5 13.5 30Z" />
-          <path d="M23 15.5V41M9 30l14 11 14-11" />
-        </svg>
+        <img src="/logo.png" alt="True Point Logo" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
         <span>TRUE POINT<small>SURVEY</small></span>
       </a>
       
