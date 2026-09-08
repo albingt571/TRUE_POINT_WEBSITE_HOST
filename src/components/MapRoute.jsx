@@ -35,7 +35,7 @@ function ShopMarker() {
   return (
     <div className="shop-marker">
       <div className="shop-marker-bubble">
-        <img src="/logo.png" alt="Truepoint Logo" className="shop-marker-logo" />
+        <img src="/heading-logo.svg" alt="Truepoint Logo" className="shop-marker-logo" />
         <span className="shop-marker-name">Truepoint</span>
       </div>
       <div className="shop-marker-arrow" />
