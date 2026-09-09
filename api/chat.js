@@ -10,13 +10,17 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Vercel sometimes auto-parses req.body into an object, sometimes leaves it as a string.
+    // This prevents double-encoding the JSON.
+    const bodyString = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
+
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`
       },
-      body: JSON.stringify(req.body)
+      body: bodyString
     });
 
     const data = await response.json();
