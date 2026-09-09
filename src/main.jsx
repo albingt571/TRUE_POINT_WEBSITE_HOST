@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './styles.css'
 import './contact.css'
 import './slider.css'
+import './chatbot.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
