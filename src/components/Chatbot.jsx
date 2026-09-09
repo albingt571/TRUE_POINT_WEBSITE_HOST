@@ -102,7 +102,7 @@ async function callGroqAPI(messagesForAPI) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      model: 'qwen/qwen3.8-27b',
+      model: 'groq/compound-mini',
       messages: messagesForAPI,
       temperature: 0.3,
       max_tokens: 1024,
