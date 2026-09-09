@@ -111,8 +111,14 @@ async function callGroqAPI(messagesForAPI) {
   });
 
   if (!response.ok) {
-    const errText = await response.text().catch(() => '');
-    throw new Error(`API error ${response.status}: ${errText}`);
+    let errMsg = `API error ${response.status}`;
+    try {
+      const errData = await response.json();
+      if (errData.error) errMsg = errData.error;
+    } catch (e) {
+      // ignore parsing error
+    }
+    throw new Error(errMsg);
   }
 
   const data = await response.json();
@@ -167,9 +173,15 @@ export default function Chatbot() {
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch (error) {
       console.error('Chat error:', error);
+      
+      const isRateLimit = error.message && error.message.includes('rate limited');
+      const errorContent = isRateLimit 
+        ? error.message
+        : 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment, or contact us directly:\n\n📞 +91 7593967016\n📧 truepoint571@gmail.com';
+
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment, or contact us directly:\n\n📞 +91 7593967016\n📧 truepoint571@gmail.com'
+        content: errorContent
       }]);
     } finally {
       setIsLoading(false);
